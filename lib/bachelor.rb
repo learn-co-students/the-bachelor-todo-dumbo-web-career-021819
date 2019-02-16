@@ -49,14 +49,19 @@ def count_contestants_by_hometown(data, hometown)
   # code here
   counter = 0
   
-  data.each do |season, contestants|
+  data.select do |season, contestants|
     contestants.each do |person|
-  
-  
+      if person["hometown"] == hometown
+        counter += 1
+        # binding.pry
+      end
     end
   end
-  
+  counter
 end
+
+
+
 
 def get_occupation(data, hometown)
   # code here
