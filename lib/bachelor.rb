@@ -65,18 +65,61 @@ end
 
 def get_occupation(data, hometown)
   # code here
+  
   occupation = ""
-  data.select do |season, contestants|
+  
+  data.each do |season, contestants|
     contestants.each do |person|
+      
       if person["hometown"] == hometown
-        occupation = person["occupation"]
+        return occupation = person["occupation"]
         # binding.pry
       end
+      
     end
   end
-  occupation
 end
+
+
 
 def get_average_age_for_season(data, season)
   # code here
+  age_array = []
+  count = 0
+  sum = 0
+  average = 0
+  
+  data[season].each do |person|
+      
+      age_array << person["age"].to_i               #changes all string numbers into intergers in array
+     # binding.pry
+      
+  end
+  
+  age_array.each do |x|
+    count += 1                                    #should be 25
+    sum = x + sum
+    #binding .pry
+  end
+  
+  average = sum.to_f / count
+   
+  average.round
+  #binding.pry
+  
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
